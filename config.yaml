@@ -1,0 +1,81 @@
+# ============================================================
+# Job Search Agent — Configuration
+# Edit this file to tune what jobs get found and how they're scored.
+# ============================================================
+
+profile:
+  name: "Sushant Raj"
+  email: "sushantraj215@gmail.com"
+  phone: "+91 8969344178"
+  linkedin: "https://linkedin.com/in/sushant0999"
+  github: "https://github.com/sushant0999"
+  years_experience: 3.5
+
+  # Used for match scoring against job titles/descriptions.
+  # Weight = relative importance (higher = matters more in scoring).
+  core_skills:
+    - { term: "Java", weight: 3 }
+    - { term: "Spring Boot", weight: 3 }
+    - { term: "Spring Cloud", weight: 2 }
+    - { term: "Microservices", weight: 3 }
+    - { term: "REST API", weight: 2 }
+    - { term: "MySQL", weight: 2 }
+    - { term: "PostgreSQL", weight: 2 }
+    - { term: "Redis", weight: 1 }
+    - { term: "RabbitMQ", weight: 1 }
+    - { term: "Docker", weight: 2 }
+    - { term: "Jenkins", weight: 1 }
+    - { term: "Kubernetes", weight: 1 }
+    - { term: "CI/CD", weight: 1 }
+    - { term: "JUnit", weight: 1 }
+    - { term: "Mockito", weight: 1 }
+    - { term: "SQL", weight: 1 }
+    - { term: "Agile", weight: 1 }
+
+  # Skills you DON'T have yet — if a JD leans heavily on these, the
+  # agent will still surface the job but flag it as a stretch.
+  gap_skills:
+    - "AWS"
+    - "Azure"
+    - "Kafka"
+    - "Kubernetes"
+    - "OAuth2"
+    - "JWT"
+    - "System Design"
+
+search:
+  # Job titles to search for (used across all sources)
+  titles:
+    - "Java Developer"
+    - "Java Backend Developer"
+    - "Spring Boot Developer"
+    - "Backend Engineer"
+    - "Software Engineer Java"
+
+  # Locations to search (used where the API supports location filters)
+  locations:
+    - "Chandigarh"
+    - "Mohali"
+    - "Panchkula"
+    - "India"          # used for PAN-India / broad searches
+    - "Remote"
+
+  # Minimum match score (0-100) to include a job in the output at all
+  min_match_score: 40
+
+  # Minimum match score to trigger an auto-drafted cover letter
+  cover_letter_threshold: 65
+
+  # Max results to pull per source per search term (keep modest to respect rate limits)
+  max_results_per_query: 15
+
+# Optional curated list of company Greenhouse/Lever board tokens to check directly.
+# Add tokens for companies you specifically want tracked (find the token in the
+# company's public careers page URL, e.g. boards.greenhouse.io/<token>).
+company_boards:
+  greenhouse: []   # e.g. ["razorpay", "postman"]
+  lever: []        # e.g. ["clevertap"]
+
+output:
+  excel_file: "job_agent_results.xlsx"
+  drafts_dir: "drafts"

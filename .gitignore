@@ -1,0 +1,26 @@
+# Environment variables and secrets
+.env
+
+# Python virtual environment
+venv/
+env/
+ENV/
+.venv/
+
+# Byte-compiled / optimized files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Output files & generated drafts
+job_agent_results.xlsx
+drafts/*
+!drafts/.gitkeep
+
+# IDEs & OS files
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
